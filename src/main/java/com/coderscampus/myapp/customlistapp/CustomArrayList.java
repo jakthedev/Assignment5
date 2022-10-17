@@ -5,9 +5,16 @@ public class CustomArrayList<T> implements CustomList<T> {
 	Object[] items = new Object[10];
 
 	@Override
-	public boolean add(T item) {
-		if (T.equals(T)) {
-			
+	public boolean add(T item) { 
+		for (int i = 0; i < items.length; i++) {
+		if (i == items.length - 1) {
+			Object[] newItemsArray = new Object[2*items.length];
+			newItemsArray = (Object[]) item; 
+			return true;
+		}else {
+			items = (Object[]) item; 
+			return true;
+		}
 		}
 		return false;
 	}
@@ -19,7 +26,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 			return 0;
 		} else {
 		for (int i = 0; i < items.length; i++) {
-			totalItems = (int) items[i]; 
+			totalItems = (Integer) items[i]; 
 			return totalItems;
 	}
 		}
@@ -28,11 +35,17 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public T get(int index) {
-		for (int i = 0; i < items.length; i++) {
+		String userChoice;
+		for (int i = 0; i < items.length; i++) { 
+			for (Object item : items) {
+			
 			if (i == index) {
-				return T;
+				userChoice = item.toString();
+				return (T) userChoice;
+			}
 			}
 		}
 		return null; 
-	} 
+	}
+	
 }
