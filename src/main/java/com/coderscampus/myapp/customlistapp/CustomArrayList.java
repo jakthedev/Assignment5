@@ -40,9 +40,14 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public int getSize() {
 		int elementCounter = 0;
-		for (Object item : items) {
-			elementCounter = +1;
+		int i = 0; 
+		
+		while (i < items.length ) { 
+			if (items[i] != null) {
+			elementCounter++;
+			i++;
 		}
+	}
 		return elementCounter;
 	}
 

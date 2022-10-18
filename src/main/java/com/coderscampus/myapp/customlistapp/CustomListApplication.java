@@ -22,19 +22,6 @@ public class CustomListApplication {
 		
 		System.out.println(players.getSize());
 		
-		System.out.println(players.get(0)); 
-		System.out.println(players.get(1));
-		System.out.println(players.get(2));
-		System.out.println(players.get(3));
-		System.out.println(players.get(4));
-		System.out.println(players.get(5));
-		System.out.println(players.get(6));
-		System.out.println(players.get(7)); 
-		System.out.println(players.get(8));
-		System.out.println(players.get(9));
-		System.out.println(players.get(10));
-		System.out.println(players.get(11));
-		
 		for (int i = 0; i < players.getSize(); i++) {
 		System.out.println(players.get(i));
 		}
