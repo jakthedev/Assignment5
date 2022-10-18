@@ -1,51 +1,62 @@
 package com.coderscampus.myapp.customlistapp;
 
-public class CustomArrayList<T> implements CustomList<T> { 
+public class CustomArrayList<T> implements CustomList<T> {
 	// When I add more than 1-
 	Object[] items = new Object[10];
+	private int i = 0;
 
 	@Override
-	public boolean add(T item) { 
-		for (int i = 0; i < items.length; i++) {
-		if (i == items.length - 1) {
-			Object[] newItemsArray = new Object[2*items.length];
-			newItemsArray = (Object[]) item; 
-			return true;
-		}else {
-			items = (Object[]) item; 
-			return true;
+	public boolean add(T item) {
+		
+		while (i <= items.length) {
+
+			if (i >= items.length) {
+
+				Object[] newItemsArray = new Object[2 * items.length];
+				int half = (newItemsArray.length / 2) - 1;
+				for (int j = 0; j < items.length; j++) {
+					// whats in items need to be in new array
+					if (newItemsArray != null) {
+						// which means something is there
+						newItemsArray[j] = items[j];
+						
+					} if (j == half ) {
+						j++;
+						newItemsArray[j] = item;
+					}
+				}
+				return true;
+			} else {
+				if (items[i] == null) {
+					items[i] = item;
+					this.i = i + 1;
+				}
+				return true;
+			}
 		}
-		}
-		return false;
+		return true;
 	}
 
 	@Override
-	public int getSize() { 
-		int totalItems = 0;
-		if (items.length == 0) {
-			return 0;
-		} else {
-		for (int i = 0; i < items.length; i++) {
-			totalItems = (Integer) items[i]; 
-			return totalItems;
+	public int getSize() {
+		int elementCounter = 0;
+		for (Object item : items) {
+			elementCounter = +1;
+		}
+		return elementCounter;
 	}
-		}
-		return totalItems;
-		}
 
 	@Override
 	public T get(int index) {
-		String userChoice;
-		for (int i = 0; i < items.length; i++) { 
-			for (Object item : items) {
-			
+		T foundItem;
+		for (int i = 0; i < items.length; i++) {
+
 			if (i == index) {
-				userChoice = item.toString();
-				return (T) userChoice;
-			}
+				foundItem = (T) items[i];
+				return foundItem;
 			}
 		}
-		return null; 
+		return null;
 	}
-	
+
 }
