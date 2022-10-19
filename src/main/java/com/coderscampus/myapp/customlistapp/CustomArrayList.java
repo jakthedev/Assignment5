@@ -1,4 +1,6 @@
-package com.coderscampus.myapp.customlistapp;
+package com.coderscampus.myapp.customlistapp; 
+
+import java.util.Arrays;
 
 public class CustomArrayList<T> implements CustomList<T> {
 	// When I add more than 1-
@@ -7,22 +9,26 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public boolean add(T item) {
-		
+
 		while (i <= items.length) {
 
 			if (i >= items.length) {
 
 				Object[] newItemsArray = new Object[2 * items.length];
 				int half = (newItemsArray.length / 2) - 1;
+				
 				for (int j = 0; j < items.length; j++) {
+					
 					// whats in items need to be in new array
 					if (newItemsArray != null) {
+						
 						// which means something is there
 						newItemsArray[j] = items[j];
-						
-					} if (j == half ) {
+					}
+					if (j == half) {
 						j++;
 						newItemsArray[j] = item;
+						items[j]  = Arrays.copyOf(newItemsArray, 20);
 					}
 				}
 				return true;
@@ -40,14 +46,14 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public int getSize() {
 		int elementCounter = 0;
-		int i = 0; 
-		
-		while (i < items.length ) { 
+		int i = 0;
+
+		while (i < items.length) {
 			if (items[i] != null) {
-			elementCounter++;
-			i++;
+				elementCounter++;
+				i++;
+			}
 		}
-	}
 		return elementCounter;
 	}
 
