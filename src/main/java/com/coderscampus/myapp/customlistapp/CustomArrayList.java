@@ -1,45 +1,45 @@
 package com.coderscampus.myapp.customlistapp; 
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class CustomArrayList<T> implements CustomList<T> {
 	// When I add more than 1-
 	Object[] items = new Object[10];
-	private int currentSize = 0;
+	private int currentSize = 0; 
+	
 // this will be excatly number in list 
-	// becuase arrays are index base dont need loop thur to add, can add to the end of the list 
+	// becuase arrays are index base dont need loop thur to add, can add to the end of the list
+	
 	@Override
 	public boolean add(T item) {
 
-		while (i <= items.length) {
+		while (currentSize <= items.length) {
+			
+			for(int j = 0; j < items.length; j++)
+			{
+			    if(items[j] == null)
+			    {
+			    	items[j] = item;
+			    	currentSize++;
+			        return true;
+			    }
+			}
 
-			if (i >= items.length) {
+			if (currentSize >= items.length) {
 
-				Object[] newItemsArray = Arrays.copyOf(items, items.length*2); //new Object[2 * items.length];
+				Object[] newItemsArray = Arrays.copyOf(items, items.length*2); 
 				int half = (newItemsArray.length / 2) - 1;
-				// dont need to use loop 
-				for (int j = 0; j < items.length; j++) {
-					
-					// whats in items need to be in new array
-					if (newItemsArray != null) {
-						
-						// which means something is there
-						newItemsArray[j] = items[j];
-					}
-					if (j == half) {
-						j++;
-						newItemsArray[j] = item;
-//						items[j]  = Arrays.copyOf(newItemsArray, 20);
-						items[j]  = Arrays.
-					}
+				System.arraycopy(newItemsArray, half, items, items.length, newItemsArray.length); 
+				
+				for(int i = 0; i < newItemsArray.length; i++)
+				{
+				    if(newItemsArray[i] == null)
+				    {
+				    	newItemsArray[i] = items;
+				        break;
+				    }
 				}
-				return true;
-			} else {
-				if (items[i] == null) {
-					items[i] = item;
-					this.i = i + 1;
-				}
-				return true;
 			}
 		}
 		return true;
