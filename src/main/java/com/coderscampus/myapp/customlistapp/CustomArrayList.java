@@ -7,15 +7,16 @@ public class CustomArrayList<T> implements CustomList<T> {
 	// When I add more than 1-
 	Object[] items = new Object[10];
 	private int currentSize = 0; 
+
+	//int half = (newItemsArray.length / 2) - 1;
+	//System.arraycopy(newItemsArray, half, items, items.length, newItemsArray.length); 	
 	
-// this will be excatly number in list 
+    // this will be excatly number in list 
 	// becuase arrays are index base dont need loop thur to add, can add to the end of the list
 	
 	@Override
 	public boolean add(T item) {
-
 		while (currentSize <= items.length) {
-			
 			for(int j = 0; j < items.length; j++)
 			{
 			    if(items[j] == null)
@@ -26,21 +27,22 @@ public class CustomArrayList<T> implements CustomList<T> {
 			    }
 			}
 
-			if (currentSize >= items.length) {
-
+			if (currentSize == items.length) {
 				Object[] newItemsArray = Arrays.copyOf(items, items.length*2); 
-				int half = (newItemsArray.length / 2) - 1;
-				System.arraycopy(newItemsArray, half, items, items.length, newItemsArray.length); 
-				
-				for(int i = 0; i < newItemsArray.length; i++)
-				{
-				    if(newItemsArray[i] == null)
-				    {
-				    	newItemsArray[i] = items;
-				        break;
+				for(int i = 0; i < newItemsArray.length; i++) 
+				{	
+				    if(newItemsArray[i] == null) {
+				    	newItemsArray[i] = item;
+				    	currentSize++;
+				    	//int len = newItemsArray.length;
+				    	//System.arraycopy(items, 0, newItemsArray, 0, len); 
+				    	items = newItemsArray;
+				        return true;
 				    }
 				}
-			}
+				// need to return the reference of array into new array created 
+				
+			}	
 		}
 		return true;
 	}
