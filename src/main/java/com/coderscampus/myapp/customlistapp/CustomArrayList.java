@@ -8,12 +8,6 @@ public class CustomArrayList<T> implements CustomList<T> {
 	Object[] items = new Object[10];
 	private int currentSize = 0; 
 
-	//int half = (newItemsArray.length / 2) - 1;
-	//System.arraycopy(newItemsArray, half, items, items.length, newItemsArray.length); 	
-	
-    // this will be excatly number in list 
-	// becuase arrays are index base dont need loop thur to add, can add to the end of the list
-	
 	@Override
 	public boolean add(T item) {
 		while (currentSize <= items.length) {
@@ -34,14 +28,10 @@ public class CustomArrayList<T> implements CustomList<T> {
 				    if(newItemsArray[i] == null) {
 				    	newItemsArray[i] = item;
 				    	currentSize++;
-				    	//int len = newItemsArray.length;
-				    	//System.arraycopy(items, 0, newItemsArray, 0, len); 
 				    	items = newItemsArray;
 				        return true;
 				    }
 				}
-				// need to return the reference of array into new array created 
-				
 			}	
 		}
 		return true;
@@ -49,16 +39,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public int getSize() {
-		int elementCounter = 0;
-		int i = 0;
 
-		while (i < items.length) {
-			if (items[i] != null) {
-				elementCounter++;
-				i++;
-			}
-		}
-		return elementCounter;
+		return currentSize;
 	}
 
 	@Override
