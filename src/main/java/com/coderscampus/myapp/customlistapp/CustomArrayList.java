@@ -56,4 +56,32 @@ public class CustomArrayList<T> implements CustomList<T> {
 		return null;
 	}
 
+	@Override
+	public boolean add(int index, T item) throws IndexOutOfBoundsException {
+		// TODO Auto-generated method stub
+		
+		return false;
+	}
+
+	@Override
+	public T remove(int index) throws IndexOutOfBoundsException {
+		
+		if (items == null || index < 0 || index >= items.length) {
+			System.out.println("No removal operation can be performed!!");
+		}
+		Object[] proxyArray = new Object[items.length - 1];
+		
+		for (int i = 0, k = 0, j = 0; i < items.length; i++) { 
+			
+			if (i == index) { 
+                continue; 
+            } 
+			
+			proxyArray[k++] = items[i];
+			
+		}
+		System.out.println("Element to be removed at index: " + index);
+		System.out.println("Array after removal operation: " + Arrays.toString(proxyArray));
+		return null;
+	}
 }

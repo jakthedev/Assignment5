@@ -8,23 +8,36 @@ public class CustomListApplication {
 	public static void main(String[] args) {
 		CustomArrayList<String> players = new CustomArrayList<String>(); 
 		
-		for (int i = 0; i < 58; i++) {
-			players.add("jak");
-		}
+//		for (int i = 0; i < 68; i++) {
+//			players.add("jak1");
+//		}
 		
 		
-//		players.add("jak"); 
-//		players.add("jak2");
-//		players.add("jak3");
-//		players.add("jak4");
-//		players.add("jak5");
-//		players.add("jak6");
-//		players.add("jak7");
-//		players.add("jak8");
-//		players.add("jak9");
-//		players.add("jak10"); 
-//		players.add("jak11");  
+		players.add("jak"); 
+		players.add("jak2");
+		players.add("jak3");
+		players.add("jak4");
+		players.add("jak5");
+		players.add("jak6");
+		players.add("jak7");
+		players.add("jak8");
+		players.add("jak9");
+		players.add("jak10"); 
+		players.add("jak11");
+		players.add("jak12"); 
+		players.add("jak13");
+		players.add("ja14");
+		players.add("jak15");
+		players.add("jak16");
+		players.add("jak17");
+		players.add("jak18");
+		players.add("jak19");
+		players.add("jak20");
+		players.add("jak21"); 
+		players.add("jak22");
 		
+		System.out.println(players.getSize());
+		players.remove(5);
 		System.out.println(players.getSize());
 		
 		for (int i = 0; i < players.getSize(); i++) {
