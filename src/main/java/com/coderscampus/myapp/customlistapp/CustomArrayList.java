@@ -66,22 +66,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
 		
-		if (items == null || index < 0 || index >= items.length) {
-			System.out.println("No removal operation can be performed!!");
+		for (int i = index, k = 0; i < items.length-1; i++) {
+			
+				items[i]=items[i + 1];
 		}
-		Object[] proxyArray = new Object[items.length - 1];
-		
-		for (int i = 0, k = 0, j = 0; i < items.length; i++) { 
-			
-			if (i == index) { 
-                continue; 
-            } 
-			
-			proxyArray[k++] = items[i];
-			
-		}
-		System.out.println("Element to be removed at index: " + index);
-		System.out.println("Array after removal operation: " + Arrays.toString(proxyArray));
 		return null;
 	}
 }
+
