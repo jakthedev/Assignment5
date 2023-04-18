@@ -8,11 +8,6 @@ public class CustomListApplication {
 	public static void main(String[] args) {
 		CustomArrayList<String> players = new CustomArrayList<String>(); 
 		
-//		for (int i = 0; i < 68; i++) {
-//			players.add("jak1");
-//		}
-		
-		
 		players.add("jak"); 
 		players.add("jak2");
 		players.add("jak3");
@@ -26,7 +21,7 @@ public class CustomListApplication {
 		players.add("jak11");
 		players.add("jak12"); 
 		players.add("jak13");
-		players.add("ja14");
+		players.add("jak14");
 		players.add("jak15");
 		players.add("jak16");
 		players.add("jak17");
@@ -35,10 +30,12 @@ public class CustomListApplication {
 		players.add("jak20");
 		players.add("jak21"); 
 		players.add("jak22");
+		players.add("jak23");
 		
 		System.out.println(players.getSize());
 		players.remove(5);
 		System.out.println(players.getSize());
+		players.add(22, "jak24");
 		
 		for (int i = 0; i < players.getSize(); i++) {
 		System.out.println(players.get(i));

@@ -58,7 +58,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
+		for(int i = 0; i < items.length; i++) {
+			if (index == i) {
+				items[i] = item;
+			}
+		}
 		
 		return false;
 	}
@@ -66,10 +70,11 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
 		
-		for (int i = index, k = 0; i < items.length-1; i++) {
+		for (int i = index; i < items.length-1; i++) {
 			
 				items[i]=items[i + 1];
-		}
+				
+		}	
 		return null;
 	}
 }
