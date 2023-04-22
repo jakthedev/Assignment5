@@ -75,9 +75,12 @@ public class CustomArrayList<T> implements CustomList<T> {
 			items[j] = newArray[j];
 			
 			if (items[j] == null) {
+				currentSize = items.length;
+						;
 				return false;
 			}
 		}
+		
 		return true;
 		
 	}
@@ -91,6 +94,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 				items[items.length-1] = null;
 				
 		}	
+		currentSize = items.length;
 		return null;
 	}
 }
