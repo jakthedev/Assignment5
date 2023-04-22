@@ -35,7 +35,8 @@ public class CustomListApplication {
 		System.out.println(players.getSize());
 		players.remove(5);
 		System.out.println(players.getSize());
-		players.add(22, "jak24");
+		players.add(2, "jak24");
+		players.add(10, "jak24");
 		
 		for (int i = 0; i < players.getSize(); i++) {
 		System.out.println(players.get(i));

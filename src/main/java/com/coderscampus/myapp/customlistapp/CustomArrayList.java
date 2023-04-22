@@ -6,7 +6,8 @@ import java.util.Arrays;
 public class CustomArrayList<T> implements CustomList<T> {
 	// When I add more than 1-
 	Object[] items = new Object[10];
-	private int currentSize = 0; 
+	private int currentSize = 0;
+	private Object last; 
 
 	@Override
 	public boolean add(T item) {
@@ -45,26 +46,40 @@ public class CustomArrayList<T> implements CustomList<T> {
 
 	@Override
 	public T get(int index) {
-		T foundItem;
-		for (int i = 0; i < items.length; i++) {
+		
+		//for (int i = 0; i < items.length; i++) {
 
-			if (i == index) {
-				foundItem = (T) items[i];
-				return foundItem;
-			}
-		}
-		return null;
+			//if (items[index]) {
+				//foundItem = (T) items[i];
+				//return (T) items[index];
+			//}
+		//}
+		return (T) items[index];
 	}
 
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
-		for(int i = 0; i < items.length; i++) {
-			if (index == i) {
-				items[i] = item;
-			}
+		
+		Object newArray[] = new Object[items.length + 1];
+		
+		for(int i = 0, e = 0 ; i < items.length; i++, e++) {
+
+			newArray[i] = items[e];			
+			if (i == index) {
+				newArray[i] = item;
+				e--;	
+			}	
 		}
 		
-		return false;
+		for(int j = 0; j < newArray.length; j++) {
+			items[j] = newArray[j];
+			
+			if (items[j] == null) {
+				return false;
+			}
+		}
+		return true;
+		
 	}
 
 	@Override
@@ -72,7 +87,8 @@ public class CustomArrayList<T> implements CustomList<T> {
 		
 		for (int i = index; i < items.length-1; i++) {
 			
-				items[i]=items[i + 1];
+				items[i]= items[i + 1];
+				items[items.length-1] = null;
 				
 		}	
 		return null;
