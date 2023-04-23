@@ -1,13 +1,11 @@
 package com.coderscampus.myapp.customlistapp; 
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class CustomArrayList<T> implements CustomList<T> {
 	// When I add more than 1-
 	Object[] items = new Object[10];
 	private int currentSize = 0;
-	private Object last; 
 
 	@Override
 	public boolean add(T item) {
@@ -47,13 +45,6 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public T get(int index) {
 		
-		//for (int i = 0; i < items.length; i++) {
-
-			//if (items[index]) {
-				//foundItem = (T) items[i];
-				//return (T) items[index];
-			//}
-		//}
 		return (T) items[index];
 	}
 
@@ -62,7 +53,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 		
 		Object newArray[] = new Object[items.length + 1];
 		
-		for(int i = 0, e = 0 ; i < items.length; i++, e++) {
+		for(int i = 0, e = 0 ; i < items.length; i++, currentSize++, e++) {
 
 			newArray[i] = items[e];			
 			if (i == index) {
@@ -94,7 +85,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 				items[items.length-1] = null;
 				
 		}	
-		currentSize = items.length;
+		currentSize--;
 		return null;
 	}
 }
