@@ -51,42 +51,62 @@ public class CustomArrayList<T> implements CustomList<T> {
 	@Override
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
 		
-		Object newArray[] = new Object[items.length + 1];
-		
-		for(int i = 0, e = 0 ; i < items.length; i++, currentSize++, e++) {
+		if (index < 0 || index > items.length) {
+	        throw new IndexOutOfBoundsException("The index is out of bounds.");
+	    }
 
-			newArray[i] = items[e];			
-			if (i == index) {
-				newArray[i] = item;
-				e--;	
-			}	
-		}
+	    Object[] newArray = new Object[items.length + 1];
+	    for (int i = 0; i < index; i++) {
+	        newArray[i] = items[i];
+	    }
+	    newArray[index] = item;
+	    for (int i = index + 1; i < newArray.length; i++) {
+	        newArray[i] = items[i - 1];
+	    }
+	    items = newArray;
+	    currentSize++;
+	    return true;
 		
-		for(int j = 0; j < newArray.length; j++) {
-			items[j] = newArray[j];
-			
-			if (items[j] == null) {
-				currentSize = items.length;
-						;
-				return false;
-			}
-		}
-		
-		return true;
+//		Object newArray[] = new Object[items.length + 1];
+//		
+//		for(int i = 0, e = 0 ; i < items.length; i++, currentSize++, e++) {
+//
+//			newArray[i] = items[e];			
+//			if (i == index) {
+//				newArray[i] = item;
+//				e--;	
+//			}	
+//		}
+//		
+//		for(int j = 0; j < newArray.length; j++) {
+//			items[j] = newArray[j];
+//			
+//			if (items[j] == null) {
+//				currentSize = items.length;
+//						;
+//				return false;
+//			}
+//		}
+//		
+//		return true;
 		
 	}
 
 	@Override
 	public T remove(int index) throws IndexOutOfBoundsException {
+		if (index < 0 || index >= items.length) {
+	        throw new IndexOutOfBoundsException("The index is out of bounds.");
+	    }
+
+	    T removedElement = (T) items[index];
+	    for (int i = index + 1; i < items.length; i++) {
+	        items[i - 1] = items[i];
+	    }
+	    items[items.length - 1] = null;
+	    currentSize--;
+	    return removedElement;
 		
-		for (int i = index; i < items.length-1; i++) {
-			
-				items[i]= items[i + 1];
-				items[items.length-1] = null;
-				
-		}	
-		currentSize--;
-		return null;
+		
 	}
 }
 

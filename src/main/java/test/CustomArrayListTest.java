@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -70,16 +71,37 @@ public class CustomArrayListTest {
 			System.out.println(i);
 			}
 		
+		
+		
 		sut.remove(1);
+		sut.remove(3);
+		sut.remove(5);
+		sut.remove(7);
 		
-//		for(int i = 0; i < sut.getSize(); i++) {
-//			
-//			System.out.println(i);
-//			}
+		for(int i = 0; i < sut.getSize(); i++) {
+			
+			System.out.println(i);
+			}
 		
-		assertEquals(10, sut.getSize());
+		assertEquals(6, sut.getSize());
 	}
-
+	
+//	@Test
+//	public void itShouldThrowNullPointerExceptionWhenBlahBlah() {
+//	    assertThrows(NullPointerException.class,
+//	            ()->{
+//	            //do whatever you want to do here
+//	            //ex : objectName.thisMethodShoulThrowNullPointerExceptionForNullParameter(null);
+//	            	CustomList<Integer> sut = new CustomArrayList<>();
+//	        		
+//	        		for(int i = 0; i < 10; i++) {
+//	        			sut.add(i);
+//	        			System.out.println(i);
+//	        		}
+//	        		
+//	        		sut.remove(-1);
+//	            });
+//	}
 	
 
 }
