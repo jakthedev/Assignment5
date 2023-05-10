@@ -12,6 +12,7 @@ public class CustomArrayListTest {
 	
 	// Test-Driven Development Methodology 
 	// Step 1 - Writing a failing test  
+	//fersfrververve
 	// Step 2 - Write the business logic to make the test pass 
 	// Step 3 - Refactor code 
 	
@@ -29,18 +30,6 @@ public class CustomArrayListTest {
 		
 	}
 	
-//	@Test 
-//	void should_return_array_size() {
-//		//Arrange 
-//		CustomList<Integer> sut = new CustomArrayList<>();
-//		//Act 
-//		for(int i = 0; i < 10; i++) {
-//			sut.add(i);
-//			}
-//		//Assert
-//		assertEquals(11, sut.getSize());
-//	}
-	
 	@Test 
 	void should_add_11_items_to_list() {
 		
@@ -50,15 +39,7 @@ public class CustomArrayListTest {
 		sut.add(i);
 		}
 		
-//		for(int i = 0; i < 10; i++) {
-//		
-//			int expectedResults = sut.get(i);
-//			assertEquals(i+1, expectedResults);
-//		}
-		
 		assertEquals(11, sut.getSize());
-		
-		
 	}
 	
 	@Test 
@@ -68,42 +49,58 @@ public class CustomArrayListTest {
 		
 		for(int i = 0; i < 10; i++) {
 			sut.add(i);
-			System.out.println(i);
+			//System.out.println(i);
 			}
 		
-		
-		
 		sut.remove(1);
+		sut.remove(2);
 		sut.remove(3);
+		sut.remove(4);
 		sut.remove(5);
-		sut.remove(7);
+		sut.remove(1);
+		sut.remove(2);
+		sut.remove(3);
+		sut.remove(4);
 		
 		for(int i = 0; i < sut.getSize(); i++) {
 			
 			System.out.println(i);
 			}
 		
-		assertEquals(6, sut.getSize());
+		assertEquals(3, sut.getSize());
 	}
 	
-//	@Test
-//	public void itShouldThrowNullPointerExceptionWhenBlahBlah() {
-//	    assertThrows(NullPointerException.class,
-//	            ()->{
-//	            //do whatever you want to do here
-//	            //ex : objectName.thisMethodShoulThrowNullPointerExceptionForNullParameter(null);
-//	            	CustomList<Integer> sut = new CustomArrayList<>();
-//	        		
-//	        		for(int i = 0; i < 10; i++) {
-//	        			sut.add(i);
-//	        			System.out.println(i);
-//	        		}
-//	        		
-//	        		sut.remove(-1);
-//	            });
-//	}
+	@Test 
+	void should_add_item_to_list_at() {
+		
+		CustomList<Integer> sut = new CustomArrayList<Integer>();
+		
+		for(int i = 0; i < 10; i++) {
+			sut.add(i);
+			//System.out.println(i);
+			}
+		
+		sut.add(4, 90);
+		sut.add(5, 100);
+		sut.add(6, 110);
+		sut.add(7, 120);
+		sut.add(8, 130);
+		sut.add(9, 140);
+		sut.add(10, 150); 
+		sut.add(11, 160); 
+		sut.add(12, 170); 
+		sut.add(13, 180); 
+		sut.add(14, 190);
+		sut.add(15, 200);
+		
+		for(int i = 0; i < sut.getSize(); i++) {
+			System.out.println(i);
+			}
+		
+		assertEquals(16, sut.getSize());
 	
 
+}
 }
 
 

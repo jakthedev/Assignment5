@@ -18,6 +18,8 @@ public class CustomListApplication {
 		players.add("jak8");
 		players.add("jak9");
 		players.add("jak10"); 
+		players.add(2, "jak24");
+		
 		players.add("jak11");
 		players.add("jak12"); 
 		players.add("jak13");
@@ -35,14 +37,12 @@ public class CustomListApplication {
 		System.out.println(players.getSize());
 		players.remove(5);
 		System.out.println(players.getSize());
-		players.add(2, "jak24");
-		players.add(10, "jak24");
+		players.add(2, "jak25");
+		players.add(22, "jak24");
 		
 		for (int i = 0; i < players.getSize(); i++) {
 		System.out.println(players.get(i));
 		}
-		 
-
 	}
 
 }
