@@ -54,51 +54,68 @@ public class CustomArrayList<T> implements CustomList<T> {
 	public boolean add(int index, T item) throws IndexOutOfBoundsException {
 		
 		
+//		if (index < 0 || index > items.length) {
+//	        throw new IndexOutOfBoundsException("The index is out of bounds.");
+//	    }
+//	    
+//	    if (currentSize == items.length) {
+//			Object[] newItemsArray = Arrays.copyOf(items, items.length*2); 
+//	    
+//	    if (currentSize < newItemsArray.length) {
+//			
+//			for(int i = 0; i < newItemsArray.length; i++) 
+//			{	
+//			    if(i == index) {
+//			    	if (newItemsArray[i] == null) {
+//			    		newItemsArray[i] = item;
+//			    		currentSize++;
+//			    	} else {
+//			    	newItemsArray[i] = item;
+//			    	}
+//			    	
+//			    	items = newItemsArray;
+//			        return true;
+//			    }
+//			}
+//	}
+//	    }
+//	
+//			
+//			    // Gotta create a new for loop, and 
+//			    
+//			    if (currentSize < items.length) {
+//			    				    
+//	    for (int j = 0; j < items.length; j++) {
+//
+//	    	if (j == index) {
+//			    	if (items[j] == null) {
+//			    		currentSize++;
+//			    		}
+//			    	
+//	    items[j] = item;
+//	    	}
+//	    
+//	    	}
+//			    }
+//	    
+//	    return true;
+		
 		if (index < 0 || index > items.length) {
 	        throw new IndexOutOfBoundsException("The index is out of bounds.");
 	    }
-	    
-	    if (currentSize == items.length) {
-			Object[] newItemsArray = Arrays.copyOf(items, items.length*2); 
-	    
-	    if (currentSize < newItemsArray.length) {
-			
-			for(int i = 0; i < newItemsArray.length; i++) 
-			{	
-			    if(i == index) {
-			    	if (newItemsArray[i] == null) {
-			    		newItemsArray[i] = item;
-			    		currentSize++;
-			    	} else {
-			    	newItemsArray[i] = item;
-			    	}
-			    	
-			    	items = newItemsArray;
-			        return true;
-			    }
-			}
-	}
-	    }
-			
-			    // Gotta create a new for loop, and 
-			    
-			    if (currentSize < items.length) {
-			    				    
-	    for (int j = 0; j < items.length; j++) {
 
-	    	if (j == index) {
-			    	if (items[j] == null) {
-			    		currentSize++;
-			    		}
-			    	
-	    items[j] = item;
-	    	}
-	    
-	    	}
-			    }
-	    
+	    if (currentSize == items.length) {
+	        items = Arrays.copyOf(items, items.length * 2);
+	    }
+
+	    for (int i = currentSize - 1; i >= index; i--) {
+	        items[i + 1] = items[i];
+	    }
+
+	    items[index] = item;
+	    currentSize++;
 	    return true;
-	
+//	
 	}
 	    
 

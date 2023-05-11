@@ -53,6 +53,8 @@ public class CustomArrayListTest {
 			}
 		
 		sut.remove(1);
+		sut.add(5, 2000);
+		sut.add(6, 2001);
 		sut.remove(2);
 		sut.remove(3);
 		sut.remove(4);
